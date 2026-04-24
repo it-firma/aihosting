@@ -1,0 +1,139 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "aihosting.no",
+  "url": "https://aihosting.no",
+  "description": "Den ultimate norske kunnskapssiden om hosting av nettsider og nettbutikker med AI i 2026.",
+  "inLanguage": "nb-NO",
+  "datePublished": "2026-04-24",
+  "dateModified": "2026-04-24",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IT-Firma.no",
+    "url": "https://it-firma.no"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Web-hosting"
+    },
+    {
+      "@type": "Thing",
+      "name": "Cloud computing"
+    },
+    {
+      "@type": "Thing",
+      "name": "Next.js"
+    },
+    {
+      "@type": "Thing",
+      "name": "PostgreSQL"
+    },
+    {
+      "@type": "Thing",
+      "name": "CDN"
+    },
+    {
+      "@type": "Thing",
+      "name": "GDPR"
+    }
+  ],
+  "hasPart": [
+    {
+      "@type": "WebPage",
+      "name": "Vercel",
+      "url": "https://aihosting.no/plattform/vercel/",
+      "about": "Next.js hosting plattform med Fluid Compute og edge-nettverk"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Netlify",
+      "url": "https://aihosting.no/plattform/netlify/",
+      "about": "JAMstack-hosting med innebygde forms og identity"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Cloudflare Pages",
+      "url": "https://aihosting.no/plattform/cloudflare/",
+      "about": "Hosting med ubegrenset båndbredde på 330+ edge-lokasjoner"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Railway",
+      "url": "https://aihosting.no/plattform/railway/",
+      "about": "Backend-hosting med usage-basert prising"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Fly.io",
+      "url": "https://aihosting.no/plattform/flyio/",
+      "about": "Global edge-hosting med 35+ regioner"
+    },
+    {
+      "@type": "WebPage",
+      "name": "DigitalOcean",
+      "url": "https://aihosting.no/plattform/digitalocean/",
+      "about": "Klassisk VPS og App Platform"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Hetzner",
+      "url": "https://aihosting.no/plattform/hetzner/",
+      "about": "Tysk VPS med beste pris per ytelse i Europa"
+    },
+    {
+      "@type": "WebPage",
+      "name": "AWS og Azure",
+      "url": "https://aihosting.no/plattform/aws/",
+      "about": "Enterprise-sky med tusenvis av tjenester"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Domener",
+      "url": "https://aihosting.no/domener/",
+      "about": "Domeneshop, .no-regler og DNS-oppsett"
+    },
+    {
+      "@type": "WebPage",
+      "name": "SSL og sikkerhet",
+      "url": "https://aihosting.no/ssl/",
+      "about": "Let's Encrypt, security headers og WAF"
+    },
+    {
+      "@type": "WebPage",
+      "name": "CDN og ytelse",
+      "url": "https://aihosting.no/cdn/",
+      "about": "Cloudflare, bildeoptimalisering og Core Web Vitals"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Database",
+      "url": "https://aihosting.no/database/",
+      "about": "Supabase, Neon, PlanetScale og Upstash"
+    },
+    {
+      "@type": "WebPage",
+      "name": "E-post",
+      "url": "https://aihosting.no/epost/",
+      "about": "Google Workspace, Fastmail og Resend"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Backup",
+      "url": "https://aihosting.no/backup/",
+      "about": "3-2-1-backup-regel og uptime-overvåkning"
+    },
+    {
+      "@type": "WebPage",
+      "name": "GDPR",
+      "url": "https://aihosting.no/gdpr/",
+      "about": "Schrems II, DPA og norsk personvernlov"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "aiå.no økosystemet",
+    "url": "https://xn--ai-9la.no",
+    "about": "Kunnskapsbase om AI-drevet web-utvikling i Norge"
+  }
+}

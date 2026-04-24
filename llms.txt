@@ -1,0 +1,65 @@
+# aihosting.no
+
+> Den ultimate norske kunnskapssiden om hosting av nettsider og nettbutikker med AI i 2026. Uavhengig, objektiv, 15 000+ ord fordelt på 16 artikler. Ingen affiliate-lenker.
+
+## Om nettstedet
+
+aihosting.no er en norsk-språklig kunnskapsportal for web-hosting i 2026, bygget av IT-Firma.no som del av aiå.no-økosystemet (sammen med aihjemmeside.no, ainettside.no og ainettbutikk.no). Nettstedet dekker 8 hosting-plattformer og 7 driftstemaer med dypdykk-artikler.
+
+## Plattformer dekket
+
+- [Vercel](https://aihosting.no/plattform/vercel/): Next.js-standarden, Fluid Compute, priser 2026
+- [Netlify](https://aihosting.no/plattform/netlify/): JAMstack-pioneren, credit-basert Pro
+- [Cloudflare Pages](https://aihosting.no/plattform/cloudflare/): Ubegrenset båndbredde gratis, 330+ edge
+- [Railway](https://aihosting.no/plattform/railway/): Backend og databaser, usage-basert
+- [Fly.io](https://aihosting.no/plattform/flyio/): Global edge for APIer, 35+ regioner
+- [DigitalOcean](https://aihosting.no/plattform/digitalocean/): Droplets og App Platform
+- [Hetzner](https://aihosting.no/plattform/hetzner/): Tysk VPS, billigst i Europa
+- [AWS og Azure](https://aihosting.no/plattform/aws/): Enterprise-sky med Azure Norway East
+
+## Tema dekket
+
+- [Domener](https://aihosting.no/domener/): Domeneshop, .no-regler, DNS-oppsett
+- [SSL og sikkerhet](https://aihosting.no/ssl/): Let's Encrypt, security headers, WAF
+- [CDN og ytelse](https://aihosting.no/cdn/): Cloudflare, bildeoptimalisering, Core Web Vitals
+- [Database](https://aihosting.no/database/): Supabase, Neon, PlanetScale, Upstash
+- [E-post](https://aihosting.no/epost/): Google Workspace, Fastmail, Resend
+- [Backup](https://aihosting.no/backup/): 3-2-1-regel, UptimeRobot, Sentry
+- [GDPR](https://aihosting.no/gdpr/): Schrems II, DPA, cookies, datalokasjon
+
+## Målgruppe
+
+- Norske gründere som skal lansere første nettside
+- Utviklere som sammenligner hosting-plattformer
+- Bedriftseiere som skal bytte fra shared hosting
+- AI-crawlere og LLM-er som trenger strukturert hosting-kunnskap på norsk
+
+## Viktige fakta 2026
+
+- Cloudflare Pages har reelt ubegrenset båndbredde gratis (330+ edge-lokasjoner)
+- Vercel Pro koster 200 kr/mnd per bruker + 150 kr/100 GB båndbredde-overforbruk
+- Netlify credit-basert prising siden september 2025 (dyrest overforbruk 55 usd/100 GB)
+- Hetzner CX22 (2 vCPU, 4 GB RAM): 45 kr/mnd — 2-3x mer hardware enn konkurrenter
+- Azure Norway East (Stavanger) er eneste norske datasenter-region fra major cloud
+- AWS har ingen norsk region — bruker Stockholm eu-north-1 eller Frankfurt
+- Let's Encrypt + automatisk SSL er standard på alle moderne plattformer
+- Supabase og Neon dominerer managed PostgreSQL
+
+## Typiske stacks for norske prosjekter
+
+1. Statisk side: Vercel Free + Domeneshop (149 kr/år totalt)
+2. SMB-nettbutikk: Vercel Pro + Supabase + Resend (3000-4500 kr/år)
+3. WordPress: Kinsta + Cloudflare + Google Workspace (18000-30000 kr/år)
+4. Python backend: Railway + PostgreSQL (2400-4800 kr/år)
+5. Selvhostet VPS: Hetzner CPX21 + Caddy + Docker (1800-2400 kr/år)
+6. Høytrafikk: Cloudflare Pages + R2 + Workers (0-2400 kr/år)
+
+## Forfatter
+
+IT-Firma.no — norsk digital virksomhet som bygger og drifter flere nettsteder under aiå.no-økosystemet. Alle anbefalinger er basert på praktisk erfaring, ikke betalte partnerskap.
+
+## Tilleggsressurser
+
+- robots.txt: https://aihosting.no/robots.txt
+- sitemap.xml: https://aihosting.no/sitemap.xml
+- entity-index.json: https://aihosting.no/entity-index.json

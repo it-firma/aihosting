@@ -1,0 +1,16 @@
+{
+  "name": "aihosting.no",
+  "short_name": "aihosting",
+  "description": "Den ultimate norske kunnskapssiden om AI-hosting",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1226",
+  "theme_color": "#0B1226",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%232DE8A8'/%3E%3Ctext x='256' y='340' font-family='Inter,sans-serif' font-size='240' font-weight='800' text-anchor='middle' fill='%230B1226'%3EAI%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

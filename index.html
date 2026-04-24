@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aihosting.no — Den ultimate norske kunnskapssiden om AI-hosting 2026</title>
+<meta name="description" content="Alt du trenger å vite om hosting av nettsider og nettbutikker i Norge i 2026. 8 plattformer sammenlignet (Vercel, Netlify, Cloudflare Pages, Railway, Fly.io, Hetzner, AWS), 7 driftstemaer, 15 000+ ord. Uavhengig og objektiv.">
+<link rel="canonical" href="https://aihosting.no/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="aihosting.no — AI-hosting 2026">
+<meta property="og:description" content="Den ultimate norske kunnskapssiden om hosting med AI i 2026.">
+<meta property="og:url" content="https://aihosting.no/">
+<meta property="og:locale" content="nb_NO">
+<meta name="theme-color" content="#0B1226">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232DE8A8'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='800' text-anchor='middle' fill='%230B1226'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "aihosting.no",
+  "url": "https://aihosting.no",
+  "inLanguage": "nb-NO",
+  "description": "Den ultimate norske kunnskapssiden om hosting av nettsider og nettbutikker med AI i 2026.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IT-Firma.no",
+    "url": "https://it-firma.no"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hva er forskjellen på web-hosting og en hosting-plattform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Klassisk web-hosting gir deg en server der du selv installerer alt. Moderne plattformer som Vercel eller Railway håndterer build, deploy og skalering automatisk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jeg hoste en nettside gratis i 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Vercel, Netlify og Cloudflare Pages har kommersielle gratistier. Du betaler kun for .no-domenet (149 kr/år)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hvilken plattform er best for norske bedrifter i 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For 80 prosent: Vercel for frontend og Railway for backend. For kostnadsfokuserte: Cloudflare Pages og Hetzner. For WordPress: Kinsta eller WP Engine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Er GDPR et problem med amerikanske plattformer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Komplisert etter Schrems II. De fleste bruker amerikanske plattformer med DPA og SCC. For maksimal compliance: Hetzner eller DigitalOcean Frankfurt."
+      }
+    }
+  ]
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+  background: #0B1226; color: white;
+  font-size: 16px; line-height: 1.65;
+}
+.progress-stripe { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.06); z-index: 1000; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2DE8A8 0%, #22D3EE 50%, #8B5CF6 100%); transition: width 0.1s; }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,18,38,0.92); backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 16px 40px;
+  display: flex; align-items: center; gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 19px; color: white; text-decoration: none; }
+.logo-circle {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+.nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; color: rgba(255,255,255,0.65); flex: 1; }
+.nav-links > a { color: inherit; text-decoration: none; transition: color 0.15s; font-weight: 500; }
+.nav-links > a:hover { color: white; }
+.nav-cta {
+  margin-left: auto;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226 !important;
+  padding: 10px 18px; border-radius: 100px;
+  text-decoration: none; font-size: 13.5px; font-weight: 700;
+  transition: transform 0.15s;
+}
+.nav-cta:hover { transform: translateY(-1px); }
+
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown-trigger {
+  background: none; border: none; cursor: pointer; padding: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px; font-weight: 500; font-family: inherit;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.15s;
+}
+.nav-dropdown-trigger:hover { color: white; }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: -16px; margin-top: 10px;
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 8px; min-width: 280px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: all 0.2s ease; z-index: 60;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.nav-dropdown-item {
+  display: flex; flex-direction: column; padding: 12px 14px;
+  border-radius: 10px; text-decoration: none; transition: background 0.12s;
+}
+.nav-dropdown-item:hover { background: #0B1226; }
+.nav-dropdown-item strong { color: white; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.nav-dropdown-item span { color: rgba(255,255,255,0.55); font-size: 12.5px; }
+.nav-ai-indeks {
+  background: rgba(45,232,168,0.06); border: 1.5px solid #5FE388;
+  color: #2DE8A8 !important; padding: 8px 16px; border-radius: 10px;
+  text-decoration: none; font-weight: 700; font-size: 13px;
+  letter-spacing: 0.02em; font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+.nav-ai-indeks:hover {
+  background: linear-gradient(135deg, #22D3EE 0%, #2DE8A8 100%);
+  color: #0B1226 !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: rgba(255,255,255,0.5);
+}
+.breadcrumb .inner { max-width: 1100px; }
+.breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.breadcrumb a:hover { color: #2DE8A8; }
+.breadcrumb span { margin: 0 10px; color: rgba(255,255,255,0.3); }
+
+/* Article hero */
+.article-hero {
+  padding: 70px 40px 40px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+}
+.article-hero::before {
+  content: ''; position: absolute; top: 20%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(45,232,168,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.article-hero .inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+.article-hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.05; margin-bottom: 18px; color: white;
+}
+.article-hero .lede {
+  font-size: 18px; color: rgba(255,255,255,0.7);
+  line-height: 1.6; max-width: 720px;
+}
+.section-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px;
+  background: rgba(45,232,168,0.08); border: 1px solid rgba(45,232,168,0.2);
+  border-radius: 100px; margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  color: #2DE8A8; letter-spacing: 0.12em; font-weight: 700;
+}
+.section-pill-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #2DE8A8; box-shadow: 0 0 6px #2DE8A8;
+}
+.article-meta {
+  display: flex; gap: 16px; margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.1em; flex-wrap: wrap;
+}
+.article-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.article-meta-dot { width: 5px; height: 5px; border-radius: 50%; background: #2DE8A8; box-shadow: 0 0 6px #2DE8A8; }
+
+/* Article body */
+article { padding: 50px 40px 70px; }
+article .inner { max-width: 760px; margin: 0 auto; }
+article h2 {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800; letter-spacing: -0.025em;
+  margin: 44px 0 14px; color: white; line-height: 1.2;
+}
+article h3 {
+  font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+  margin: 28px 0 10px; color: white;
+}
+article p { color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 15px; }
+article p strong { color: white; font-weight: 700; }
+article ul, article ol { margin: 14px 0 20px 24px; color: rgba(255,255,255,0.78); }
+article li { margin-bottom: 7px; line-height: 1.75; }
+article a { color: #2DE8A8; text-decoration: none; font-weight: 500; }
+article a:hover { text-decoration: underline; }
+article hr {
+  border: none; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  margin: 40px 0;
+}
+
+.info-box {
+  background: rgba(45,232,168,0.05);
+  border: 1px solid rgba(45,232,168,0.2);
+  border-left: 3px solid #2DE8A8;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.info-box-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #2DE8A8; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 8px;
+}
+.info-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+.warn-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-left: 3px solid #EF4444;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.warn-box-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #FCA5A5; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 8px;
+}
+.warn-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+pre.code-block {
+  background: #0A0F1F !important;
+  border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 12px; padding: 20px 24px;
+  overflow-x: auto; margin: 16px 0 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; line-height: 1.7;
+  color: rgba(255,255,255,0.85); position: relative;
+}
+pre.code-block::before {
+  content: attr(data-lang); position: absolute;
+  top: 12px; right: 16px; font-size: 10px;
+  color: rgba(45,232,168,0.6); letter-spacing: 0.1em; font-weight: 700;
+}
+pre.code-block .kw { color: #C084FC; }
+pre.code-block .str { color: #2DE8A8; }
+pre.code-block .com { color: rgba(255,255,255,0.4); font-style: italic; }
+pre.code-block .tag { color: #22D3EE; }
+pre.code-block .attr { color: #FCA5A5; }
+code.inline {
+  background: rgba(45,232,168,0.08); border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 5px; padding: 2px 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: #2DE8A8;
+}
+
+.facts {
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 24px 28px; margin: 28px 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 30px;
+  position: relative; overflow: hidden;
+}
+.facts::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #2DE8A8 50%, transparent 100%);
+}
+.fact { display: flex; flex-direction: column; gap: 3px; }
+.fact-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.12em; font-weight: 700;
+}
+.fact-value { color: white; font-weight: 700; font-size: 15px; }
+.fact-value.highlight {
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.next-nav {
+  background: #0F1832; padding: 50px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.next-nav .inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.next-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 22px 24px;
+  text-decoration: none; transition: all 0.2s;
+  position: relative; overflow: hidden;
+}
+.next-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.4) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.2s;
+}
+.next-card:hover {
+  background: rgba(255,255,255,0.05); border-color: rgba(45,232,168,0.2);
+  transform: translateY(-2px);
+}
+.next-card:hover::before { opacity: 1; }
+.next-card-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(45,232,168,0.7); letter-spacing: 0.12em; font-weight: 700; margin-bottom: 6px;
+}
+.next-card-title {
+  color: white; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+}
+.next-card.prev { text-align: left; }
+.next-card.next { text-align: right; }
+
+/* Ecosystem row */
+.ecosystem-row {
+  background: #0B1226; padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+}
+.ecosystem-row::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.3) 20%, rgba(139,92,246,0.3) 80%, transparent 100%);
+}
+.ecosystem-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.ecosystem-links { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.ecosystem-links a { color: rgba(255,255,255,0.85); font-size: 17px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+.ecosystem-links a:hover { color: #2DE8A8; }
+.ecosystem-separator { color: rgba(255,255,255,0.2); font-size: 14px; }
+.ecosystem-signature { display: inline-flex; align-items: center; gap: 14px; margin-top: 22px; }
+.ecosystem-signature-line { width: 60px; height: 1px; }
+.ecosystem-signature-line.left { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-line.right { background: linear-gradient(270deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.25em; text-transform: uppercase;
+}
+
+/* Footer */
+footer { background: #0B1226; padding: 50px 40px 30px; }
+.footer-main {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 40px; margin-bottom: 30px;
+}
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col strong { color: white; font-weight: 700; margin-bottom: 6px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-col p { color: rgba(255,255,255,0.55); font-size: 13.5px; line-height: 1.6; margin: 0; }
+.footer-col a { color: rgba(255,255,255,0.55); font-size: 13.5px; text-decoration: none; padding: 2px 0; transition: color 0.15s; }
+.footer-col a:hover { color: white; }
+.footer-logo { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+.footer-logo-circle { width: 36px; height: 36px; background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%); color: #0B1226; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
+.footer-logo-text { color: white; font-weight: 800; font-size: 19px; }
+.footer-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.footer-tag { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.7); padding: 4px 10px; border-radius: 100px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; }
+.footer-tag-ai { background: rgba(45,232,168,0.1); color: #2DE8A8; border: 1px solid rgba(45,232,168,0.3); }
+.footer-ai-link {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important; color: rgba(45,232,168,0.7) !important;
+  position: relative; padding-left: 14px !important;
+}
+.footer-ai-link::before { content: '↗'; position: absolute; left: 0; top: 2px; font-size: 12px; }
+.footer-ai-link:hover { color: #2DE8A8 !important; }
+.footer-col-ai strong { color: #2DE8A8; }
+.footer-col p a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-col p a:hover { color: white; }
+
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: rgba(255,255,255,0.4);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+}
+
+@media (max-width: 960px) {
+  .nav-links > a:not(.active), .nav-dropdown-trigger { display: none; }
+  .nav-links > a.nav-ai-indeks { display: inline-block; }
+  nav { padding: 14px 20px; gap: 20px; }
+  .article-hero, article, .next-nav { padding-left: 20px; padding-right: 20px; }
+  .breadcrumb { padding: 16px 20px; }
+  .facts { grid-template-columns: 1fr; }
+  .next-nav .inner { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+@media (max-width: 560px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+
+.footer-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.footer-tag {
+  background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.7);
+  padding: 4px 10px; border-radius: 100px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em;
+}
+.footer-tag-ai {
+  background: rgba(45,232,168,0.1); color: #2DE8A8;
+  border: 1px solid rgba(45,232,168,0.3);
+}
+.footer-col p a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-col p a:hover { color: white; }
+
+section.hero {
+  padding: 80px 40px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+section.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse, rgba(45,232,168,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 100px;
+  background: rgba(45,232,168,0.08); border: 1px solid rgba(45,232,168,0.25);
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #2DE8A8; letter-spacing: 0.12em; font-weight: 700;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #2DE8A8; box-shadow: 0 0 8px #2DE8A8;
+}
+section.hero h1 {
+  font-size: clamp(42px, 7vw, 78px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 26px;
+}
+section.hero h1 .line {
+  display: block;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+section.hero p.lede {
+  font-size: clamp(17px, 2.2vw, 21px);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+.hero-cta-row {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  transition: all 0.2s;
+}
+.hero-cta-primary {
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226;
+}
+.hero-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(45,232,168,0.25); }
+.hero-cta-secondary {
+  background: rgba(255,255,255,0.05);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.hero-cta-secondary:hover { background: rgba(255,255,255,0.08); }
+
+.stats-row {
+  background: #0B1226; padding: 40px;
+  border-top: 1px solid rgba(45,232,168,0.15);
+  border-bottom: 1px solid rgba(45,232,168,0.15);
+  position: relative; overflow: hidden;
+}
+.stats-row::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.5) 50%, transparent 100%);
+}
+.stats-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0; text-align: center; position: relative; z-index: 1;
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-big {
+  font-size: clamp(32px, 4.5vw, 44px); font-weight: 800;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -0.035em; line-height: 1;
+  display: inline-flex; align-items: baseline;
+}
+.stat-aeo {
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat-plus, .stat-percent, .stat-unit { font-size: 0.6em; font-weight: 700; margin-left: 2px; }
+.stat-label {
+  color: rgba(255,255,255,0.45); font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em; margin-top: 10px;
+}
+.stat-divider {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  align-self: center;
+}
+@media (max-width: 720px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px 0; }
+  .stat-divider { display: none; }
+}
+
+section {
+  padding: 70px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+section .inner { max-width: 1100px; margin: 0 auto; }
+section h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.1; margin-bottom: 14px;
+}
+section p.lede {
+  font-size: 17px; color: rgba(255,255,255,0.65);
+  line-height: 1.7; max-width: 700px; margin-bottom: 30px;
+}
+
+.toc {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  background: #0F1832; border-radius: 16px; padding: 16px;
+  margin-top: 30px;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; border-radius: 10px;
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  font-size: 14px; transition: all 0.15s;
+}
+.toc-item:hover { background: rgba(255,255,255,0.04); color: white; }
+.toc-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.35); font-weight: 700;
+  min-width: 20px;
+}
+@media (max-width: 860px) { .toc { grid-template-columns: 1fr; } }
+
+.tool-cards {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  margin-top: 30px;
+}
+.tool-card {
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 26px;
+  transition: all 0.2s; position: relative; overflow: hidden;
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.tool-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.4) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.2s;
+}
+.tool-card:hover {
+  border-color: rgba(45,232,168,0.2); transform: translateY(-2px);
+}
+.tool-card:hover::before { opacity: 1; }
+.tool-card-header {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+}
+.tool-card-name {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.tool-card-price {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.5); letter-spacing: 0.05em;
+}
+.tool-card-desc {
+  color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6;
+  margin: 0;
+}
+.tool-card-link {
+  margin-top: auto; padding-top: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: #2DE8A8; letter-spacing: 0.05em; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+@media (max-width: 720px) { .tool-cards { grid-template-columns: 1fr; } }
+
+.comparison-table {
+  margin-top: 30px; background: #0F1832;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; overflow: hidden;
+}
+.comparison-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.comparison-table th {
+  text-align: left; padding: 14px 18px;
+  background: rgba(0,0,0,0.2);
+  color: rgba(255,255,255,0.6); font-weight: 700;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.1em; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.comparison-table td {
+  padding: 14px 18px; color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.comparison-table td:first-child { color: white; font-weight: 600; }
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+.check-yes { color: #2DE8A8; font-weight: 700; }
+.check-no { color: rgba(255,255,255,0.3); }
+.check-partial { color: #FCA5A5; }
+
+.faq-list { margin-top: 30px; display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px; overflow: hidden;
+}
+.faq-q {
+  padding: 18px 22px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 600; font-size: 15.5px; color: white;
+  user-select: none;
+}
+.faq-q::after {
+  content: '+'; font-size: 22px; color: rgba(255,255,255,0.5);
+  font-weight: 300; transition: transform 0.2s;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 22px; max-height: 0; overflow: hidden;
+  transition: all 0.3s; color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.7;
+}
+.faq-item.open .faq-a { padding: 0 22px 20px; max-height: 500px; }
+
+.case-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 14px; margin-top: 24px;
+}
+.case-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 24px;
+  transition: all 0.2s; position: relative; overflow: hidden;
+}
+.case-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.4) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.2s;
+}
+.case-card:hover {
+  background: rgba(255,255,255,0.05); border-color: rgba(45,232,168,0.2);
+  transform: translateY(-2px);
+}
+.case-card:hover::before { opacity: 1; }
+.case-domain {
+  font-family: 'JetBrains Mono', monospace; font-size: 17px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 4px; letter-spacing: -0.02em;
+}
+.case-desc {
+  color: rgba(255,255,255,0.55); font-size: 12.5px; margin-bottom: 14px;
+}
+.case-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.case-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.65); padding: 3px 8px;
+  border-radius: 100px; font-weight: 600;
+}
+.case-metric {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 12px; font-size: 12.5px; color: rgba(255,255,255,0.65);
+}
+.case-metric strong { color: white; font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+
+.glossary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+.glossary-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 16px 20px;
+  transition: all 0.2s;
+}
+.glossary-item:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(45,232,168,0.2);
+}
+.glossary-term {
+  font-family: 'JetBrains Mono', monospace; color: #2DE8A8;
+  font-weight: 700; font-size: 13px; margin-bottom: 4px;
+}
+.glossary-def {
+  color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.55; margin: 0;
+}
+@media (max-width: 720px) {
+  .case-grid { grid-template-columns: 1fr; }
+  .glossary { grid-template-columns: 1fr; }
+  section { padding: 50px 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-stripe"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav>
+  <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+    <div class="logo-circle">AI</div>
+    AIHOSTING
+  </a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Plattformer
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/plattform/vercel/" class="nav-dropdown-item">
+          <strong>Vercel</strong>
+          <span>Next.js-standard med edge-nettverk</span>
+        </a>
+        <a href="/plattform/netlify/" class="nav-dropdown-item">
+          <strong>Netlify</strong>
+          <span>JAMstack-pioneren</span>
+        </a>
+        <a href="/plattform/cloudflare/" class="nav-dropdown-item">
+          <strong>Cloudflare Pages</strong>
+          <span>Ubegrenset båndbredde, 330+ edge</span>
+        </a>
+        <a href="/plattform/railway/" class="nav-dropdown-item">
+          <strong>Railway</strong>
+          <span>Backend og databaser med Docker</span>
+        </a>
+        <a href="/plattform/flyio/" class="nav-dropdown-item">
+          <strong>Fly.io</strong>
+          <span>Global edge for APIer</span>
+        </a>
+        <a href="/plattform/digitalocean/" class="nav-dropdown-item">
+          <strong>DigitalOcean</strong>
+          <span>Droplets og managed apps</span>
+        </a>
+        <a href="/plattform/hetzner/" class="nav-dropdown-item">
+          <strong>Hetzner</strong>
+          <span>Europeisk VPS til bunnpris</span>
+        </a>
+        <a href="/plattform/aws/" class="nav-dropdown-item">
+          <strong>AWS og Azure</strong>
+          <span>Enterprise skyleverandører</span>
+        </a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Tema
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/domener/" class="nav-dropdown-item">
+          <strong>Domener</strong>
+          <span>Domeneshop, .no-regler, DNS</span>
+        </a>
+        <a href="/ssl/" class="nav-dropdown-item">
+          <strong>SSL og sikkerhet</strong>
+          <span>Let's Encrypt, WAF, DDoS</span>
+        </a>
+        <a href="/cdn/" class="nav-dropdown-item">
+          <strong>CDN og ytelse</strong>
+          <span>Cloudflare, bildeoptimalisering</span>
+        </a>
+        <a href="/database/" class="nav-dropdown-item">
+          <strong>Database</strong>
+          <span>Supabase, Neon, PlanetScale</span>
+        </a>
+        <a href="/epost/" class="nav-dropdown-item">
+          <strong>E-post</strong>
+          <span>Google Workspace, Fastmail</span>
+        </a>
+        <a href="/backup/" class="nav-dropdown-item">
+          <strong>Backup</strong>
+          <span>Uptime-overvåkning og restore</span>
+        </a>
+      </div>
+    </div>
+    <a href="/gdpr/">GDPR</a>
+    <a href="#case-studies">Cases</a>
+    <a href="#faq">FAQ</a>
+    <a href="#ordliste" class="nav-ai-indeks">Ordliste</a>
+  </div>
+  <a href="#oversikt" class="nav-cta">Start her →</a>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      OPPDATERT 24. APRIL 2026 · 15 000+ ORD
+    </div>
+    <h1>
+      <span class="line">Den ultimate</span>
+      <span class="line">kunnskapssiden</span>
+      <span class="line">om AI-hosting.</span>
+    </h1>
+    <p class="lede">Alt du trenger å vite for å hoste en nettside eller nettbutikk i 2026. 8 plattformer sammenlignet fra gratis til enterprise, 7 driftstemaer, 15 000 ord, null affiliate.</p>
+    <div class="hero-cta-row">
+      <a href="#oversikt" class="hero-cta hero-cta-primary">Start lesingen →</a>
+      <a href="/plattform/vercel/" class="hero-cta hero-cta-secondary">Gå direkte til Vercel</a>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="stats-row">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-big">8<span class="stat-plus">+</span></div>
+      <div class="stat-label">PLATTFORMER 2026</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-big">330<span class="stat-plus">+</span></div>
+      <div class="stat-label">EDGE-LOKASJONER CF</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-big">0<span class="stat-unit">kr</span></div>
+      <div class="stat-label">GRATISTERSKEL CF</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-big stat-aeo">99,9<span class="stat-percent">%</span></div>
+      <div class="stat-label">TYPISK OPPETID</div>
+    </div>
+  </div>
+</div>
+
+
+
+<section id="oversikt">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>INNHOLDSFORTEGNELSE</div>
+    <h2>Alt som dekkes her</h2>
+    <p class="lede">20 seksjoner fordelt på plattformer, tema og valgguide. Sidene er bygget for å leses i rekkefølge eller hoppes i.</p>
+
+    <div class="toc">
+      <a href="/plattform/vercel/" class="toc-item"><span class="toc-num">01</span><span>Vercel</span></a>
+      <a href="/plattform/netlify/" class="toc-item"><span class="toc-num">02</span><span>Netlify</span></a>
+      <a href="/plattform/cloudflare/" class="toc-item"><span class="toc-num">03</span><span>Cloudflare Pages</span></a>
+      <a href="/plattform/railway/" class="toc-item"><span class="toc-num">04</span><span>Railway</span></a>
+      <a href="/plattform/flyio/" class="toc-item"><span class="toc-num">05</span><span>Fly.io</span></a>
+      <a href="/plattform/digitalocean/" class="toc-item"><span class="toc-num">06</span><span>DigitalOcean</span></a>
+      <a href="/plattform/hetzner/" class="toc-item"><span class="toc-num">07</span><span>Hetzner</span></a>
+      <a href="/plattform/aws/" class="toc-item"><span class="toc-num">08</span><span>AWS og Azure</span></a>
+      <a href="/domener/" class="toc-item"><span class="toc-num">09</span><span>Domener</span></a>
+      <a href="/ssl/" class="toc-item"><span class="toc-num">10</span><span>SSL og sikkerhet</span></a>
+      <a href="/cdn/" class="toc-item"><span class="toc-num">11</span><span>CDN og ytelse</span></a>
+      <a href="/database/" class="toc-item"><span class="toc-num">12</span><span>Database</span></a>
+      <a href="/epost/" class="toc-item"><span class="toc-num">13</span><span>E-post</span></a>
+      <a href="/backup/" class="toc-item"><span class="toc-num">14</span><span>Backup</span></a>
+      <a href="/gdpr/" class="toc-item"><span class="toc-num">15</span><span>GDPR</span></a>
+      <a href="#valg" class="toc-item"><span class="toc-num">16</span><span>Hvordan velge plattform</span></a>
+      <a href="#kostnader" class="toc-item"><span class="toc-num">17</span><span>Reelle kostnader</span></a>
+      <a href="#case-studies" class="toc-item"><span class="toc-num">18</span><span>Case studies</span></a>
+      <a href="#faq" class="toc-item"><span class="toc-num">19</span><span>FAQ</span></a>
+      <a href="#ordliste" class="toc-item"><span class="toc-num">20</span><span>Ordliste</span></a>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="plattformer">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>PLATTFORMER 2026</div>
+    <h2>De 8 mest aktuelle plattformene</h2>
+    <p class="lede">Hostinglandskapet i 2026 er delt i tre hovedleirer: edge-plattformer for statiske sider og Next.js (Vercel, Netlify, Cloudflare Pages), container-hosting for backender og databaser (Railway, Fly.io), og klassisk VPS eller sky for full kontroll (Hetzner, DigitalOcean, AWS).</p>
+
+    <div class="tool-cards">
+
+      <a href="/plattform/vercel/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Vercel</div>
+          <div class="tool-card-price">GRATIS / 200 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Laget av Next.js-teamet. Best utvikleropplevelse for React og Next.js. 100 GB båndbredde gratis, deretter brukerbasert Pro-plan.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/netlify/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Netlify</div>
+          <div class="tool-card-price">GRATIS / 190 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">JAMstack-pioneren. Framework-agnostisk, innebygde forms og identity. Credit-basert Pro-plan siden 2025.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/cloudflare/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Cloudflare Pages</div>
+          <div class="tool-card-price">GRATIS / 200 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Ubegrenset båndbredde selv på gratis. 330+ edge-lokasjoner. Best for høytrafikk og global ytelse.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/railway/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Railway</div>
+          <div class="tool-card-price">FRA 50 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Enkleste måten å hoste backender, databaser og Docker-apper. Usage-basert pris. Ideell for Python, Node.js og PostgreSQL.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/flyio/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Fly.io</div>
+          <div class="tool-card-price">FRA 110 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Global edge for APIer og containere. 35+ datasentre. Fast pris per maskin, billigere ved 24/7 drift enn Railway.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/digitalocean/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">DigitalOcean</div>
+          <div class="tool-card-price">FRA 45 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Klassiske Droplets (VPS) og App Platform. Forutsigbare priser, god dokumentasjon. Tysk datasenter i Frankfurt.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/hetzner/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Hetzner</div>
+          <div class="tool-card-price">FRA 45 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Tysk hosting, billigst i Europa. CX22: 2 vCPU, 4 GB RAM, 40 GB SSD for under 50 kr/mnd. GDPR-trygt.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/plattform/aws/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">AWS og Azure</div>
+          <div class="tool-card-price">FRA 100 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Enterprise-sky. Full fleksibilitet, men kompleks prising. For større team og kunder som krever ISO-sertifisering.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+    </div>
+
+    <div style="margin-top: 40px;">
+      <h3 style="font-size: 22px; margin-bottom: 14px;">Rask sammenligning</h3>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Plattform</th>
+              <th>Beste bruk</th>
+              <th>Gratistier</th>
+              <th>Båndbredde</th>
+              <th>Læringskurve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vercel</td>
+              <td>Next.js og React</td>
+              <td><span class="check-yes">Ja, kommersiell</span></td>
+              <td>100 GB gratis</td>
+              <td>Lav</td>
+            </tr>
+            <tr>
+              <td>Netlify</td>
+              <td>JAMstack, statiske sider</td>
+              <td><span class="check-yes">Ja</span></td>
+              <td>100 GB gratis</td>
+              <td>Lav</td>
+            </tr>
+            <tr>
+              <td>Cloudflare Pages</td>
+              <td>Høytrafikk, globalt</td>
+              <td><span class="check-yes">Ja, ubegrenset</span></td>
+              <td>Ubegrenset</td>
+              <td>Middels</td>
+            </tr>
+            <tr>
+              <td>Railway</td>
+              <td>Backend, databaser</td>
+              <td><span class="check-partial">5 usd kreditt</span></td>
+              <td>100 GB inkludert</td>
+              <td>Lav</td>
+            </tr>
+            <tr>
+              <td>Fly.io</td>
+              <td>Global API edge</td>
+              <td><span class="check-partial">5 usd kreditt</span></td>
+              <td>160 GB utgang</td>
+              <td>Middels</td>
+            </tr>
+            <tr>
+              <td>DigitalOcean</td>
+              <td>Standard VPS</td>
+              <td><span class="check-no">Nei, 200 usd test</span></td>
+              <td>500 GB/Droplet</td>
+              <td>Middels</td>
+            </tr>
+            <tr>
+              <td>Hetzner</td>
+              <td>Billig europeisk VPS</td>
+              <td><span class="check-no">Nei</span></td>
+              <td>20 TB inkludert</td>
+              <td>Middels-høy</td>
+            </tr>
+            <tr>
+              <td>AWS/Azure</td>
+              <td>Enterprise</td>
+              <td><span class="check-partial">12 mnd gratis</span></td>
+              <td>Variabel</td>
+              <td>Høy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="valg">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>BESLUTNINGSGUIDE</div>
+    <h2>Hvordan velge riktig plattform</h2>
+    <p class="lede">Hostingvalget avhenger av hva du skal deploye og hvor mye trafikk du forventer. Her er beslutningstreet som fungerer for 95 prosent av norske prosjekter.</p>
+
+    <h3 style="font-size: 22px; margin-top: 30px;">Hvis du bygger en statisk side eller Next.js</h3>
+    <p style="color: rgba(255,255,255,0.75);">Start med <strong style="color: white;">Vercel</strong> gratistier. Hvis du overstiger 100 GB båndbredde per måned, vurder <strong style="color: white;">Cloudflare Pages</strong> med ubegrenset båndbredde. Begge deployer fra GitHub i 30 sekunder.</p>
+
+    <h3 style="font-size: 22px; margin-top: 24px;">Hvis du bygger en backend eller API</h3>
+    <p style="color: rgba(255,255,255,0.75);">For små og variable belastninger: <strong style="color: white;">Railway</strong> med usage-basert prising. For 24/7 global edge: <strong style="color: white;">Fly.io</strong>. For maksimal kostnadskontroll: <strong style="color: white;">Hetzner</strong> VPS.</p>
+
+    <h3 style="font-size: 22px; margin-top: 24px;">Hvis du trenger full kontroll og europeisk datalokasjon</h3>
+    <p style="color: rgba(255,255,255,0.75);">Bruk <strong style="color: white;">Hetzner</strong> i Nürnberg eller Falkenstein, eller <strong style="color: white;">DigitalOcean</strong> i Frankfurt. Begge gir deg ren Ubuntu-VPS med GDPR-trygg lagring, fra 45-75 kr per måned.</p>
+
+    <h3 style="font-size: 22px; margin-top: 24px;">Hvis du er i enterprise eller sertifisert sektor</h3>
+    <p style="color: rgba(255,255,255,0.75);">Velg <strong style="color: white;">AWS</strong> eller <strong style="color: white;">Azure</strong>. Dyrere og mer komplekst, men du får ISO 27001, SOC 2 og tusenvis av tjenester i samme konto.</p>
+
+    <h3 style="font-size: 22px; margin-top: 24px;">Vanligste feilvalg i 2026</h3>
+    <ul style="color: rgba(255,255,255,0.75); line-height: 1.8; margin-left: 20px;">
+      <li><strong style="color: white;">Vercel for Python-backender.</strong> Bruker du cron-jobber eller langlevd prosesser, velg Railway eller Fly.io.</li>
+      <li><strong style="color: white;">AWS for småsider.</strong> Overkill og lett å få overraskelsesregning. Start med Vercel eller Hetzner.</li>
+      <li><strong style="color: white;">Hetzner uten linux-erfaring.</strong> Du får ren VPS uten kontrollpanel. Bruk Railway eller DigitalOcean App Platform hvis du ikke kjenner SSH.</li>
+      <li><strong style="color: white;">Netlify uten spend cap.</strong> Båndbreddsoverkjøringer koster 55 usd per 100 GB, langt dyrere enn Vercel.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section id="kostnader">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>ÆRLIG PRISING</div>
+    <h2>Reelle kostnader for norsk web-hosting</h2>
+    <p class="lede">Annonsert pris er sjelden det du faktisk betaler. Her er den reelle kostnadsstrukturen for ulike prosjekttyper i 2026. Alle tall er per år.</p>
+
+    <div class="comparison-table" style="margin-top: 30px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Prosjekttype</th>
+            <th>Billigste</th>
+            <th>Typisk SMB</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Statisk nettside</td>
+            <td>0 kr (Vercel/CF gratis)</td>
+            <td>149 kr (bare .no-domene)</td>
+            <td>2400 kr (Vercel Pro)</td>
+          </tr>
+          <tr>
+            <td>WordPress-side</td>
+            <td>600 kr (shared)</td>
+            <td>3600 kr (SiteGround)</td>
+            <td>24000 kr (Kinsta)</td>
+          </tr>
+          <tr>
+            <td>Next.js nettbutikk</td>
+            <td>149 kr (CF Pages)</td>
+            <td>2400-3600 kr</td>
+            <td>30000+ kr (Vercel Team)</td>
+          </tr>
+          <tr>
+            <td>Node.js backend + DB</td>
+            <td>600 kr (Railway)</td>
+            <td>1200-3600 kr</td>
+            <td>15000+ kr (AWS RDS)</td>
+          </tr>
+          <tr>
+            <td>Full VPS-oppsett</td>
+            <td>540 kr (Hetzner CX22)</td>
+            <td>1800 kr (CPX21)</td>
+            <td>12000+ kr (dedikert)</td>
+          </tr>
+          <tr>
+            <td>.no-domene</td>
+            <td>129 kr/år (Domeneshop)</td>
+            <td>149 kr/år</td>
+            <td>149 kr/år</td>
+          </tr>
+          <tr>
+            <td>SSL-sertifikat</td>
+            <td>0 kr (Let's Encrypt)</td>
+            <td>0 kr</td>
+            <td>3000 kr (EV SSL)</td>
+          </tr>
+          <tr>
+            <td>Backup og overvåkning</td>
+            <td>0 kr (manuelt)</td>
+            <td>500-1500 kr/år</td>
+            <td>5000+ kr/år</td>
+          </tr>
+          <tr>
+            <td><strong>Typisk totalår</strong></td>
+            <td><strong>149-749 kr</strong></td>
+            <td><strong>3000-8000 kr</strong></td>
+            <td><strong>50000+ kr</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 22px; margin-top: 40px;">Viktige observasjoner</h3>
+    <ul style="color: rgba(255,255,255,0.75); line-height: 1.8; margin-left: 20px;">
+      <li><strong style="color: white;">Gratis-tiers er reelle i 2026.</strong> Vercel, Cloudflare Pages og Netlify har alle gratistier som dekker seriøse SMB-prosjekter. For en statisk .no-side kan totalkostnaden være 149 kr/år (bare domenet).</li>
+      <li><strong style="color: white;">Hetzner er uslåelig per krone.</strong> Tysk VPS til 45-90 kr/mnd gir 2-4 vCPU og 4-8 GB RAM. For samme pris hos AWS får du omtrent halvparten av ressursene.</li>
+      <li><strong style="color: white;">Shared WordPress-hosting er falsk økonomi.</strong> One.com for 59 kr/mnd virker billig, men tåler ikke trafikk og er trege. Bedre å bruke Hetzner for samme pris med bedre ytelse.</li>
+      <li><strong style="color: white;">AWS og Azure får lett overraskelsesregning.</strong> Glemte tjenester som kjører uten traffic kan koste tusenvis. Sett alltid budget alerts.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section id="drift-oversikt">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>TEMA OG DRIFT</div>
+    <h2>7 driftstemaer du må beherske</h2>
+    <p class="lede">Plattformen er bare halvparten. Domener, SSL, CDN, databaser, e-post, backup og GDPR — alt må henge sammen for at nettsiden skal fungere profesjonelt. Hver får egen dypdykk-underside.</p>
+
+    <div class="tool-cards">
+
+      <a href="/domener/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Domener</div>
+          <div class="tool-card-price">129 KR/ÅR .NO</div>
+        </div>
+        <p class="tool-card-desc">Domeneshop er norsk standardleverandør. .no-regler, DNS-oppsett, overføring. International: Cloudflare Registrar til kostpris.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/ssl/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">SSL og sikkerhet</div>
+          <div class="tool-card-price">GRATIS</div>
+        </div>
+        <p class="tool-card-desc">Let's Encrypt automatisk på alle moderne plattformer. WAF, DDoS-beskyttelse, ratelimiting, headers og kryptering.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/cdn/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">CDN og ytelse</div>
+          <div class="tool-card-price">GRATIS-300 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Cloudflare dekker 95 prosent. Bildeoptimalisering, cache-strategi, HTTP/3, Core Web Vitals og hvordan holde TTFB under 200 ms.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/database/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Database</div>
+          <div class="tool-card-price">GRATIS-500 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Supabase, Neon, PlanetScale, Turso. Serverless PostgreSQL og MySQL med gratistier. Når du trenger Redis, Upstash.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/epost/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">E-post</div>
+          <div class="tool-card-price">60-120 KR/MND</div>
+        </div>
+        <p class="tool-card-desc">Google Workspace, Fastmail, Zoho Mail, Proton Mail. SPF, DKIM, DMARC. Transaksjons-epost via Resend og Postmark.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/backup/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">Backup</div>
+          <div class="tool-card-price">VARIERER</div>
+        </div>
+        <p class="tool-card-desc">3-2-1-regel, automatisk restore-testing, uptime-overvåkning. UptimeRobot, BetterStack, Sentry for feil.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+      <a href="/gdpr/" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-card-name">GDPR</div>
+          <div class="tool-card-price">KRITISK</div>
+        </div>
+        <p class="tool-card-desc">Datalokasjon, Schrems II, databehandleravtaler, cookies, personvernerklæring. Hva som faktisk kreves av norske nettsteder.</p>
+        <div class="tool-card-link">LES GUIDE →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="case-studies" style="background: #0D1530;">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>EKTE EKSEMPLER</div>
+    <h2>Typiske hosting-stacks for norske prosjekter</h2>
+    <p class="lede">Her er noen referansestacks fra IT-Firma.no-porteføljen og norske markedet. Alle bruker kombinasjoner beskrevet på denne siden.</p>
+
+    <div class="case-grid">
+
+      <div class="case-card">
+        <div class="case-domain">Statisk .no-portefølje</div>
+        <div class="case-desc">Enkel presentasjonsside med 5-15 undersider. Perfekt for personlig branding eller enkle bedriftssider.</div>
+        <div class="case-stack">
+          <span class="case-tag">Vercel Free</span>
+          <span class="case-tag">Domeneshop</span>
+          <span class="case-tag">Cloudflare DNS</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>149 kr/år</strong> (kun .no-domenet)
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-domain">Next.js SMB-nettbutikk</div>
+        <div class="case-desc">Custom AI-bygd nettbutikk med Stripe og Vipps. Typisk 20-100 produkter og 500K-2M kr omsetning.</div>
+        <div class="case-stack">
+          <span class="case-tag">Vercel Pro</span>
+          <span class="case-tag">Supabase</span>
+          <span class="case-tag">Resend</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>3000-4500 kr/år</strong>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-domain">WordPress-bedriftsside</div>
+        <div class="case-desc">Klassisk WordPress med WooCommerce, ACF Pro, Yoast SEO Premium. Blogg og nettbutikk kombinert.</div>
+        <div class="case-stack">
+          <span class="case-tag">Kinsta WP</span>
+          <span class="case-tag">Cloudflare</span>
+          <span class="case-tag">Google Workspace</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>18000-30000 kr/år</strong>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-domain">Python-backend med DB</div>
+        <div class="case-desc">FastAPI eller Django-app med PostgreSQL. Brukt for scraping, AI-APIer, krypto-tradingbotter.</div>
+        <div class="case-stack">
+          <span class="case-tag">Railway</span>
+          <span class="case-tag">PostgreSQL</span>
+          <span class="case-tag">GitHub Actions</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>2400-4800 kr/år</strong>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-domain">Selv-hostet VPS-stack</div>
+        <div class="case-desc">Full kontroll på europeisk hardware. Kjør Docker, Nginx, PostgreSQL selv. For utviklere med linux-erfaring.</div>
+        <div class="case-stack">
+          <span class="case-tag">Hetzner CPX21</span>
+          <span class="case-tag">Caddy</span>
+          <span class="case-tag">Docker</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>1800-2400 kr/år</strong>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-domain">Høytrafikk statisk</div>
+        <div class="case-desc">Kunnskapsside eller markedsføringsside med 500K-5M sidevisninger per måned. Båndbredde er hovedkostnad.</div>
+        <div class="case-stack">
+          <span class="case-tag">Cloudflare Pages</span>
+          <span class="case-tag">R2 Storage</span>
+          <span class="case-tag">Workers</span>
+        </div>
+        <div class="case-metric">
+          Kostnad: <strong>0-2400 kr/år</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top: 28px;">Alle stackene bruker kombinasjoner av plattformer og tjenester beskrevet i dypdykk-sidene. Fellesnevneren er: dedikert hosting-leverandør for hver del i stacken, ikke alt-i-ett-løsninger.</p>
+  </div>
+</section>
+
+
+
+<section id="faq">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>OFTE STILTE SPØRSMÅL</div>
+    <h2>12 svar på det folk lurer på</h2>
+    <p class="lede">De vanligste spørsmålene fra norske gründere og utviklere som skal velge hosting. Klikk på hvert for svar.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">Hva er forskjellen på web-hosting og en hosting-plattform?</div>
+        <div class="faq-a">Klassisk web-hosting (shared hosting, VPS) gir deg en server der du selv må installere alt. Moderne hosting-plattformer som Vercel eller Railway håndterer build, deploy, SSL, skalering og overvåkning automatisk. Du pusher til Git og alt fungerer. For 2026-prosjekter er plattformer nesten alltid riktig valg med mindre du har spesielle krav.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Kan jeg hoste en nettside gratis i 2026?</div>
+        <div class="faq-a">Ja, kommersielt. Vercel, Netlify og Cloudflare Pages har alle gratistier som dekker SMB-prosjekter. Cloudflare er mest generøs med ubegrenset båndbredde. Du betaler bare for domenet (149 kr/år for .no). Gratistiers varer i evig tid så lenge du ikke overstiger limits.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hvorfor velge Vercel hvis Cloudflare Pages er billigere?</div>
+        <div class="faq-a">Vercel er laget av Next.js-teamet. Nye Next.js-funksjoner fungerer først og best der. ISR (Incremental Static Regeneration), Server Components, Image Optimization. Cloudflare Pages støtter Next.js men har alltid noen måneders forsinkelse på nye funksjoner. For seriøse Next.js-prosjekter er Vercel verdt ekstra-kostnaden.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Er GDPR et problem med amerikanske plattformer?</div>
+        <div class="faq-a">Det er komplisert etter Schrems II-dommen (2020). I 2026 bruker de fleste norske nettsteder fortsatt Vercel, Netlify og Cloudflare med DPA-avtaler og Standard Contractual Clauses. For maksimal compliance: velg Hetzner i Tyskland eller DigitalOcean Frankfurt-regionen. For offentlig sektor: krev ofte datalagring i Norge eller EØS.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Bør jeg bruke WordPress eller Next.js i 2026?</div>
+        <div class="faq-a">WordPress for innholdstunge sider (blogg, nettavis, bedriftsside) hvor redaktører må redigere uten utviklere. Next.js for alt annet: nettbutikker, apper, SaaS, markedsføringssider med tilpasset design. Next.js er raskere, tryggere og billigere å hoste, men krever utvikler for endringer. AI-verktøy som Claude kan redusere denne terskelen betydelig.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hva koster det å hoste en nettbutikk i Norge?</div>
+        <div class="faq-a">Shopify: 290-3000 kr/mnd inkludert hosting. Custom nettbutikk på Vercel: 200-400 kr/mnd. WooCommerce på managed hosting: 250-1500 kr/mnd. Legg til Supabase eller PostgreSQL for 0-200 kr/mnd. Total: 200-3500 kr/mnd avhengig av plattform.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hvor lang tid tar det å bytte hosting?</div>
+        <div class="faq-a">Statisk side eller Next.js: 30 minutter (git push til ny plattform). WordPress-side: 4-20 timer avhengig av størrelse. Full VPS-migrering: 1-5 dager. Viktigst: test alt på ny server før du endrer DNS. Nedetid kan unngås helt med riktig planlegging.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hvorfor er shared hosting (One.com, Domeneshop) tregt?</div>
+        <div class="faq-a">Du deler server med hundretusenvis av andre nettsteder. CPU, RAM og diskkapasitet er begrenset. Når en nabo-nettside får trafikktopp, lider din side. Moderne plattformer som Vercel eller Cloudflare bruker isolerte containere og CDN-edge slik at naboer ikke påvirker deg.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Må jeg ha et .no-domene som norsk bedrift?</div>
+        <div class="faq-a">Nei, men det gir tillit. Norid (som administrerer .no) krever norsk org.nr for .no-domener. .no-domener er SEO-fordel for norsk målgruppe og signaliserer seriøsitet. .com eller .io fungerer fint hvis du har internasjonal ambisjon. Mange norske bedrifter har både (eks. bedrift.no og bedrift.com).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Trenger jeg CDN hvis jeg bruker Vercel?</div>
+        <div class="faq-a">Nei, Vercel inkluderer eget edge-nettverk. Det samme gjelder Netlify og Cloudflare Pages. CDN er først relevant hvis du bruker klassisk VPS (Hetzner, DigitalOcean) eller shared hosting uten innebygd edge. Da legger du Cloudflare gratis foran.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hva skjer når jeg overgår gratistiers?</div>
+        <div class="faq-a">Varierer per plattform. Vercel blokkerer gratistier-overforbruk — siden går i wait. Cloudflare Pages fortsetter å serve båndbredde gratis men limiter Workers-requests. Netlify sender deg faktura uten varsel hvis du ikke har satt spend cap. Sett alltid spending limits før du lanserer noe med trafikkpotensial.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Hvilken plattform er best for norske bedrifter i 2026?</div>
+        <div class="faq-a">For 80 prosent: Vercel for frontend og Railway for backend. For kostnadsfokuserte: Cloudflare Pages og Hetzner. For WordPress: Kinsta eller WP Engine. For enterprise med compliance-krav: AWS Frankfurt eller Azure North Europe. Ingen universell vinner — avhenger av prosjekt og team.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+
+
+<section id="ordliste">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>ORDLISTE</div>
+    <h2>Terminologi for hosting</h2>
+    <p class="lede">Hosting-bransjen er full av akronymer. Her er 20 av de viktigste termene på norsk.</p>
+
+    <div class="glossary">
+
+      <div class="glossary-item">
+        <div class="glossary-term">CDN</div>
+        <p class="glossary-def">Content Delivery Network. Nettverk av servere globalt som cacher og leverer statiske filer. Reduserer TTFB og båndbredde fra opprinnelsesserver.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Edge</div>
+        <p class="glossary-def">Servere nær sluttbrukeren. Cloudflare har 330+ edge-lokasjoner. Lavere latens enn sentraliserte datasentre.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">TTFB</div>
+        <p class="glossary-def">Time To First Byte. Tid fra forespørsel til første svar-byte. Under 200 ms er bra, under 100 ms er utmerket. Core Web Vitals måler dette.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">VPS</div>
+        <p class="glossary-def">Virtual Private Server. Virtualisert server der du får root-tilgang. Hetzner og DigitalOcean er største leverandører av ren VPS i 2026.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Serverless</div>
+        <p class="glossary-def">Kode som kjører kun når det trengs. Du betaler per invokering, ikke per måned. Vercel Functions og AWS Lambda er eksempler.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Cold start</div>
+        <p class="glossary-def">Forsinkelse når serverless-funksjon starter etter inaktivitet. 100-400 ms typisk. Cloudflare Workers har ingen cold start pga V8 isolates.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Egress</div>
+        <p class="glossary-def">Data som sendes ut fra server til klient. AWS tar 0,09 usd/GB i egress. Cloudflare R2 har null egress. Kan være stor skjult kostnad.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">DNS</div>
+        <p class="glossary-def">Domain Name System. Oversetter domenenavn til IP-adresser. Cloudflare DNS er raskest og gratis. Propagering tar 0-48 timer globalt.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">SSL og TLS</div>
+        <p class="glossary-def">Kryptering mellom klient og server. TLS er moderne versjonen. Let's Encrypt gir gratis sertifikater med automatisk fornyelse.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">WAF</div>
+        <p class="glossary-def">Web Application Firewall. Blokkerer OWASP Top 10-angrep (SQL injection, XSS, etc.) før de når din app. Cloudflare WAF inkludert fra Pro-plan.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">DDoS</div>
+        <p class="glossary-def">Distributed Denial of Service. Angrep som overbelaster server. Cloudflare og Vercel har innebygd DDoS-beskyttelse på alle planer.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Uptime</div>
+        <p class="glossary-def">Tid serveren er tilgjengelig. 99,9 prosent = 8,76 timer nedetid per år. 99,99 prosent = 52 minutter. Enterprise krever 99,99+ prosent.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">SLA</div>
+        <p class="glossary-def">Service Level Agreement. Kontrakt som garanterer uptime. AWS SLA: 99,99 prosent. Vercel SLA: 99,9 prosent på Pro. Brudd gir kreditt, ikke refusjon.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">SSG</div>
+        <p class="glossary-def">Static Site Generation. Bygger HTML på forhånd. Raskest mulig leveranse. Next.js, Astro og Hugo støtter dette.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">SSR</div>
+        <p class="glossary-def">Server-Side Rendering. HTML genereres per forespørsel. Nødvendig for dynamisk innhold som brukerprofiler. Tregere enn SSG.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">ISR</div>
+        <p class="glossary-def">Incremental Static Regeneration. Next.js-funksjon som regenererer statisk HTML etter tidsperiode. Balanse mellom SSG og SSR.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Git push deploy</div>
+        <p class="glossary-def">Deployment som utløses når du pusher til Git. Vercel, Netlify, Cloudflare Pages og Railway støtter dette fra GitHub, GitLab og Bitbucket.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Preview deploy</div>
+        <p class="glossary-def">Unik URL for hver pull request. Tester endringer før merge. Standard på Vercel, Netlify og Cloudflare Pages.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Headless</div>
+        <p class="glossary-def">Arkitektur der backend (API) er skilt fra frontend. Samme API serverer web, app, POS. Brukes mye i moderne commerce.</p>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Container</div>
+        <p class="glossary-def">Isolert prosess med alle dependencies. Docker er standard. Railway, Fly.io og AWS ECS kjører containere. Gir konsistent deployment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ALLE SIDER -->
+<section id="alle-sider" style="background: #0D1530;">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>KOMPLETT OVERSIKT</div>
+    <h2>Alle sider på aihosting.no</h2>
+    <p class="lede">15 dypdykk-artikler, 40 000+ ord totalt. Hver side er skrevet for å være komplett i seg selv, så du kan starte hvor som helst.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px;">
+
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2DE8A8; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 14px;">PLATTFORMER</div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <a href="/plattform/vercel/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">01</span><span>Vercel — Next.js-standard</span></a>
+          <a href="/plattform/netlify/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">02</span><span>Netlify — JAMstack-pioneren</span></a>
+          <a href="/plattform/cloudflare/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">03</span><span>Cloudflare Pages</span></a>
+          <a href="/plattform/railway/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">04</span><span>Railway — backend-plattform</span></a>
+          <a href="/plattform/flyio/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">05</span><span>Fly.io — global edge</span></a>
+          <a href="/plattform/digitalocean/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">06</span><span>DigitalOcean</span></a>
+          <a href="/plattform/hetzner/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">07</span><span>Hetzner — billig europeisk</span></a>
+          <a href="/plattform/aws/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">08</span><span>AWS og Azure</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #22D3EE; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 14px;">TEMA</div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <a href="/domener/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">09</span><span>Domener — .no og DNS</span></a>
+          <a href="/ssl/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">10</span><span>SSL og sikkerhet</span></a>
+          <a href="/cdn/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">11</span><span>CDN og ytelse</span></a>
+          <a href="/database/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">12</span><span>Database-hosting</span></a>
+          <a href="/epost/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">13</span><span>E-post-hosting</span></a>
+          <a href="/backup/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">14</span><span>Backup og overvåkning</span></a>
+          <a href="/gdpr/" class="toc-item" style="padding: 10px 14px;"><span class="toc-num">15</span><span>GDPR og datalokasjon</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ecosystem-row">
+  <div class="ecosystem-inner">
+    <div class="ecosystem-links">
+      <a href="https://aihjemmeside.no">aihjemmeside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://ainettside.no">ainettside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://ainettbutikk.no">ainettbutikk.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://aihosting.no" style="color: #2DE8A8;">aihosting.no</a>
+    </div>
+    <div class="ecosystem-signature">
+      <div class="ecosystem-signature-line left"></div>
+      <div class="ecosystem-signature-text">aiå.no</div>
+      <div class="ecosystem-signature-line right"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="footer-logo-circle">AI</div>
+        <span class="footer-logo-text">AIHOSTING</span>
+      </div>
+      <p>Den ultimate norske kunnskapssiden for hosting av nettsider og nettbutikker med AI i 2026. Bygget av <a href="https://it-firma.no" rel="author">IT-Firma.no</a>, del av aiå.no økosystemet.</p>
+      <div class="footer-tags">
+        <span class="footer-tag">2026</span>
+        <span class="footer-tag">Norsk</span>
+        <span class="footer-tag footer-tag-ai">AEO-optimalisert</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <strong>Plattformer</strong>
+      <a href="/plattform/vercel/">Vercel</a>
+      <a href="/plattform/netlify/">Netlify</a>
+      <a href="/plattform/cloudflare/">Cloudflare Pages</a>
+      <a href="/plattform/railway/">Railway</a>
+      <a href="/plattform/flyio/">Fly.io</a>
+      <a href="/plattform/digitalocean/">DigitalOcean</a>
+      <a href="/plattform/hetzner/">Hetzner</a>
+      <a href="/plattform/aws/">AWS og Azure</a>
+    </div>
+    <div class="footer-col">
+      <strong>Tema</strong>
+      <a href="/domener/">Domener</a>
+      <a href="/ssl/">SSL og sikkerhet</a>
+      <a href="/cdn/">CDN og ytelse</a>
+      <a href="/database/">Database</a>
+      <a href="/epost/">E-post</a>
+      <a href="/backup/">Backup</a>
+      <a href="/gdpr/">GDPR</a>
+    </div>
+    <div class="footer-col footer-col-ai">
+      <strong>For maskiner</strong>
+      <a href="/entity-index.json" class="footer-ai-link">entity-index.json</a>
+      <a href="/llms.txt" class="footer-ai-link">llms.txt</a>
+      <a href="/sitemap.xml" class="footer-ai-link">sitemap.xml</a>
+      <a href="/robots.txt" class="footer-ai-link">robots.txt</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 IT-Firma.no. Alle rettigheter reservert.</div>
+    <div>Sist oppdatert 24. april 2026</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progressFill').style.width = (scrollTop / scrollHeight * 100) + '%';
+});
+</script>
+
+</body>
+</html>

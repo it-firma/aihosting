@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# AI-crawlers (eksplisitt tillatt)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://aihosting.no/sitemap.xml

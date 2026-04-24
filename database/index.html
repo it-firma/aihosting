@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="nb-NO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database-hosting for norske nettsteder — guide 2026 | aihosting.no</title>
+<meta name="description" content="Supabase, Neon, PlanetScale, Upstash. Serverless PostgreSQL og Redis i 2026. Hvordan velge database for Next.js, Railway og Hetzner.">
+<link rel="canonical" href="https://aihosting.no/database/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Database-hosting for norske nettsteder — guide 2026 | aihosting.no">
+<meta property="og:description" content="Supabase, Neon, PlanetScale, Upstash. Serverless PostgreSQL og Redis i 2026. Hvordan velge database for Next.js, Railway og Hetzner.">
+<meta property="og:url" content="https://aihosting.no/database/">
+<meta property="og:locale" content="nb_NO">
+<meta name="theme-color" content="#0B1226">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232DE8A8'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='800' text-anchor='middle' fill='%230B1226'%3EAI%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Database-hosting for norske nettsteder — guide 2026 | aihosting.no",
+  "description": "Supabase, Neon, PlanetScale, Upstash. Serverless PostgreSQL og Redis i 2026. Hvordan velge database for Next.js, Railway og Hetzner.",
+  "url": "https://aihosting.no/database/",
+  "datePublished": "2026-04-24",
+  "dateModified": "2026-04-24",
+  "inLanguage": "nb-NO",
+  "author": {
+    "@type": "Organization",
+    "name": "IT-Firma.no",
+    "url": "https://it-firma.no"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aihosting.no",
+    "url": "https://aihosting.no"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aihosting.no/database/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "aihosting.no",
+      "item": "https://aihosting.no/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tema",
+      "item": "https://aihosting.no/#drift-oversikt"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Database",
+      "item": "https://aihosting.no/database/"
+    }
+  ]
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+  background: #0B1226; color: white;
+  font-size: 16px; line-height: 1.65;
+}
+.progress-stripe { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: rgba(255,255,255,0.06); z-index: 1000; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #2DE8A8 0%, #22D3EE 50%, #8B5CF6 100%); transition: width 0.1s; }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,18,38,0.92); backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 16px 40px;
+  display: flex; align-items: center; gap: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 19px; color: white; text-decoration: none; }
+.logo-circle {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+.nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; color: rgba(255,255,255,0.65); flex: 1; }
+.nav-links > a { color: inherit; text-decoration: none; transition: color 0.15s; font-weight: 500; }
+.nav-links > a:hover { color: white; }
+.nav-cta {
+  margin-left: auto;
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  color: #0B1226 !important;
+  padding: 10px 18px; border-radius: 100px;
+  text-decoration: none; font-size: 13.5px; font-weight: 700;
+  transition: transform 0.15s;
+}
+.nav-cta:hover { transform: translateY(-1px); }
+
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown-trigger {
+  background: none; border: none; cursor: pointer; padding: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px; font-weight: 500; font-family: inherit;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.15s;
+}
+.nav-dropdown-trigger:hover { color: white; }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: -16px; margin-top: 10px;
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 8px; min-width: 280px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: all 0.2s ease; z-index: 60;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.nav-dropdown-item {
+  display: flex; flex-direction: column; padding: 12px 14px;
+  border-radius: 10px; text-decoration: none; transition: background 0.12s;
+}
+.nav-dropdown-item:hover { background: #0B1226; }
+.nav-dropdown-item strong { color: white; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.nav-dropdown-item span { color: rgba(255,255,255,0.55); font-size: 12.5px; }
+.nav-ai-indeks {
+  background: rgba(45,232,168,0.06); border: 1.5px solid #5FE388;
+  color: #2DE8A8 !important; padding: 8px 16px; border-radius: 10px;
+  text-decoration: none; font-weight: 700; font-size: 13px;
+  letter-spacing: 0.02em; font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s;
+}
+.nav-ai-indeks:hover {
+  background: linear-gradient(135deg, #22D3EE 0%, #2DE8A8 100%);
+  color: #0B1226 !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: rgba(255,255,255,0.5);
+}
+.breadcrumb .inner { max-width: 1100px; }
+.breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.breadcrumb a:hover { color: #2DE8A8; }
+.breadcrumb span { margin: 0 10px; color: rgba(255,255,255,0.3); }
+
+/* Article hero */
+.article-hero {
+  padding: 70px 40px 40px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+}
+.article-hero::before {
+  content: ''; position: absolute; top: 20%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(45,232,168,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.article-hero .inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+.article-hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800; letter-spacing: -0.03em;
+  line-height: 1.05; margin-bottom: 18px; color: white;
+}
+.article-hero .lede {
+  font-size: 18px; color: rgba(255,255,255,0.7);
+  line-height: 1.6; max-width: 720px;
+}
+.section-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px;
+  background: rgba(45,232,168,0.08); border: 1px solid rgba(45,232,168,0.2);
+  border-radius: 100px; margin-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  color: #2DE8A8; letter-spacing: 0.12em; font-weight: 700;
+}
+.section-pill-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #2DE8A8; box-shadow: 0 0 6px #2DE8A8;
+}
+.article-meta {
+  display: flex; gap: 16px; margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.1em; flex-wrap: wrap;
+}
+.article-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.article-meta-dot { width: 5px; height: 5px; border-radius: 50%; background: #2DE8A8; box-shadow: 0 0 6px #2DE8A8; }
+
+/* Article body */
+article { padding: 50px 40px 70px; }
+article .inner { max-width: 760px; margin: 0 auto; }
+article h2 {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800; letter-spacing: -0.025em;
+  margin: 44px 0 14px; color: white; line-height: 1.2;
+}
+article h3 {
+  font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+  margin: 28px 0 10px; color: white;
+}
+article p { color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 15px; }
+article p strong { color: white; font-weight: 700; }
+article ul, article ol { margin: 14px 0 20px 24px; color: rgba(255,255,255,0.78); }
+article li { margin-bottom: 7px; line-height: 1.75; }
+article a { color: #2DE8A8; text-decoration: none; font-weight: 500; }
+article a:hover { text-decoration: underline; }
+article hr {
+  border: none; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  margin: 40px 0;
+}
+
+.info-box {
+  background: rgba(45,232,168,0.05);
+  border: 1px solid rgba(45,232,168,0.2);
+  border-left: 3px solid #2DE8A8;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.info-box-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #2DE8A8; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 8px;
+}
+.info-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+.warn-box {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-left: 3px solid #EF4444;
+  border-radius: 10px; padding: 18px 22px; margin: 22px 0;
+}
+.warn-box-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #FCA5A5; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 8px;
+}
+.warn-box p { margin: 0; color: rgba(255,255,255,0.8); font-size: 14.5px; }
+
+pre.code-block {
+  background: #0A0F1F !important;
+  border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 12px; padding: 20px 24px;
+  overflow-x: auto; margin: 16px 0 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; line-height: 1.7;
+  color: rgba(255,255,255,0.85); position: relative;
+}
+pre.code-block::before {
+  content: attr(data-lang); position: absolute;
+  top: 12px; right: 16px; font-size: 10px;
+  color: rgba(45,232,168,0.6); letter-spacing: 0.1em; font-weight: 700;
+}
+pre.code-block .kw { color: #C084FC; }
+pre.code-block .str { color: #2DE8A8; }
+pre.code-block .com { color: rgba(255,255,255,0.4); font-style: italic; }
+pre.code-block .tag { color: #22D3EE; }
+pre.code-block .attr { color: #FCA5A5; }
+code.inline {
+  background: rgba(45,232,168,0.08); border: 1px solid rgba(45,232,168,0.15);
+  border-radius: 5px; padding: 2px 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: #2DE8A8;
+}
+
+.facts {
+  background: #0F1832; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 24px 28px; margin: 28px 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 30px;
+  position: relative; overflow: hidden;
+}
+.facts::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #2DE8A8 50%, transparent 100%);
+}
+.fact { display: flex; flex-direction: column; gap: 3px; }
+.fact-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.12em; font-weight: 700;
+}
+.fact-value { color: white; font-weight: 700; font-size: 15px; }
+.fact-value.highlight {
+  background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.next-nav {
+  background: #0F1832; padding: 50px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.next-nav .inner {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.next-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 22px 24px;
+  text-decoration: none; transition: all 0.2s;
+  position: relative; overflow: hidden;
+}
+.next-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.4) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.2s;
+}
+.next-card:hover {
+  background: rgba(255,255,255,0.05); border-color: rgba(45,232,168,0.2);
+  transform: translateY(-2px);
+}
+.next-card:hover::before { opacity: 1; }
+.next-card-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(45,232,168,0.7); letter-spacing: 0.12em; font-weight: 700; margin-bottom: 6px;
+}
+.next-card-title {
+  color: white; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+}
+.next-card.prev { text-align: left; }
+.next-card.next { text-align: right; }
+
+/* Ecosystem row */
+.ecosystem-row {
+  background: #0B1226; padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+}
+.ecosystem-row::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(45,232,168,0.3) 20%, rgba(139,92,246,0.3) 80%, transparent 100%);
+}
+.ecosystem-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.ecosystem-links { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.ecosystem-links a { color: rgba(255,255,255,0.85); font-size: 17px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+.ecosystem-links a:hover { color: #2DE8A8; }
+.ecosystem-separator { color: rgba(255,255,255,0.2); font-size: 14px; }
+.ecosystem-signature { display: inline-flex; align-items: center; gap: 14px; margin-top: 22px; }
+.ecosystem-signature-line { width: 60px; height: 1px; }
+.ecosystem-signature-line.left { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-line.right { background: linear-gradient(270deg, transparent 0%, rgba(255,255,255,0.15) 100%); }
+.ecosystem-signature-text {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(255,255,255,0.45); letter-spacing: 0.25em; text-transform: uppercase;
+}
+
+/* Footer */
+footer { background: #0B1226; padding: 50px 40px 30px; }
+.footer-main {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 40px; margin-bottom: 30px;
+}
+.footer-col { display: flex; flex-direction: column; gap: 8px; }
+.footer-col strong { color: white; font-weight: 700; margin-bottom: 6px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+.footer-col p { color: rgba(255,255,255,0.55); font-size: 13.5px; line-height: 1.6; margin: 0; }
+.footer-col a { color: rgba(255,255,255,0.55); font-size: 13.5px; text-decoration: none; padding: 2px 0; transition: color 0.15s; }
+.footer-col a:hover { color: white; }
+.footer-logo { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+.footer-logo-circle { width: 36px; height: 36px; background: linear-gradient(135deg, #2DE8A8 0%, #22D3EE 100%); color: #0B1226; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
+.footer-logo-text { color: white; font-weight: 800; font-size: 19px; }
+.footer-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.footer-tag { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.7); padding: 4px 10px; border-radius: 100px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em; }
+.footer-tag-ai { background: rgba(45,232,168,0.1); color: #2DE8A8; border: 1px solid rgba(45,232,168,0.3); }
+.footer-ai-link {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important; color: rgba(45,232,168,0.7) !important;
+  position: relative; padding-left: 14px !important;
+}
+.footer-ai-link::before { content: '↗'; position: absolute; left: 0; top: 2px; font-size: 12px; }
+.footer-ai-link:hover { color: #2DE8A8 !important; }
+.footer-col-ai strong { color: #2DE8A8; }
+.footer-col p a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-col p a:hover { color: white; }
+
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: rgba(255,255,255,0.4);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+}
+
+@media (max-width: 960px) {
+  .nav-links > a:not(.active), .nav-dropdown-trigger { display: none; }
+  .nav-links > a.nav-ai-indeks { display: inline-block; }
+  nav { padding: 14px 20px; gap: 20px; }
+  .article-hero, article, .next-nav { padding-left: 20px; padding-right: 20px; }
+  .breadcrumb { padding: 16px 20px; }
+  .facts { grid-template-columns: 1fr; }
+  .next-nav .inner { grid-template-columns: 1fr; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+@media (max-width: 560px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-stripe"><div class="progress-fill" id="progressFill"></div></div>
+
+<nav>
+  <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+    <div class="logo-circle">AI</div>
+    AIHOSTING
+  </a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Plattformer
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/plattform/vercel/" class="nav-dropdown-item">
+          <strong>Vercel</strong>
+          <span>Next.js-standard med edge-nettverk</span>
+        </a>
+        <a href="/plattform/netlify/" class="nav-dropdown-item">
+          <strong>Netlify</strong>
+          <span>JAMstack-pioneren</span>
+        </a>
+        <a href="/plattform/cloudflare/" class="nav-dropdown-item">
+          <strong>Cloudflare Pages</strong>
+          <span>Ubegrenset båndbredde, 330+ edge</span>
+        </a>
+        <a href="/plattform/railway/" class="nav-dropdown-item">
+          <strong>Railway</strong>
+          <span>Backend og databaser med Docker</span>
+        </a>
+        <a href="/plattform/flyio/" class="nav-dropdown-item">
+          <strong>Fly.io</strong>
+          <span>Global edge for APIer</span>
+        </a>
+        <a href="/plattform/digitalocean/" class="nav-dropdown-item">
+          <strong>DigitalOcean</strong>
+          <span>Droplets og managed apps</span>
+        </a>
+        <a href="/plattform/hetzner/" class="nav-dropdown-item">
+          <strong>Hetzner</strong>
+          <span>Europeisk VPS til bunnpris</span>
+        </a>
+        <a href="/plattform/aws/" class="nav-dropdown-item">
+          <strong>AWS og Azure</strong>
+          <span>Enterprise skyleverandører</span>
+        </a>
+      </div>
+    </div>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Tema
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-left: 2px;"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="/domener/" class="nav-dropdown-item">
+          <strong>Domener</strong>
+          <span>Domeneshop, .no-regler, DNS</span>
+        </a>
+        <a href="/ssl/" class="nav-dropdown-item">
+          <strong>SSL og sikkerhet</strong>
+          <span>Let's Encrypt, WAF, DDoS</span>
+        </a>
+        <a href="/cdn/" class="nav-dropdown-item">
+          <strong>CDN og ytelse</strong>
+          <span>Cloudflare, bildeoptimalisering</span>
+        </a>
+        <a href="/database/" class="nav-dropdown-item">
+          <strong>Database</strong>
+          <span>Supabase, Neon, PlanetScale</span>
+        </a>
+        <a href="/epost/" class="nav-dropdown-item">
+          <strong>E-post</strong>
+          <span>Google Workspace, Fastmail</span>
+        </a>
+        <a href="/backup/" class="nav-dropdown-item">
+          <strong>Backup</strong>
+          <span>Uptime-overvåkning og restore</span>
+        </a>
+      </div>
+    </div>
+    <a href="/gdpr/">GDPR</a>
+    <a href="/#case-studies">Cases</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/#ordliste" class="nav-ai-indeks">Ordliste</a>
+  </div>
+  <a href="/" class="nav-cta">← Tilbake</a>
+</nav>
+
+<div class="breadcrumb">
+  <div class="inner"><a href="/">aihosting.no</a><span>/</span><a href="/#drift-oversikt">Tema</a><span>/</span>Database</div>
+</div>
+
+<section class="article-hero">
+  <div class="inner">
+    <div class="section-pill"><span class="section-pill-dot"></span>TEMA · DYPDYKK</div>
+    <h1>Database-hosting i 2026</h1>
+    <p class="lede">Serverless PostgreSQL, Redis og vektor-databaser. Supabase, Neon, PlanetScale og når du bør selvhoste. Komplett oversikt.</p>
+    <div class="article-meta"><span><span class="article-meta-dot"></span>OPPDATERT 24. APRIL 2026</span><span><span class="article-meta-dot"></span>2300+ ORD</span><span><span class="article-meta-dot"></span>LESETID 10 MIN</span></div>
+  </div>
+</section>
+
+<article>
+  <div class="inner">
+
+    <h2>Database-hosting i 2026</h2>
+    <p>Databaser er hjertet i de fleste webapper — alt fra brukerprofiler til produktkataloger til ordrer lagres her. Tradisjonelt måtte du selv installere og vedlikeholde PostgreSQL eller MySQL på en server. I 2026 har managed database-tjenester blitt så gode og billige at 95 prosent av nye prosjekter bruker dem i stedet.</p>
+
+    <div class="info-box">
+      <div class="info-box-title">SUPABASE OG NEON DOMINERER 2026</div>
+      <p>For PostgreSQL (den klart mest populære databasen i 2026) er Supabase og Neon de dominerende valgene. Begge har generøse gratis-tiers som dekker tidlig-stadium-prosjekter. PlanetScale er standarden for MySQL. Redis via Upstash for cache og realtime.</p>
+    </div>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fact-label">SUPABASE GRATIS</div>
+        <div class="fact-value highlight">500 MB DB</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">NEON GRATIS</div>
+        <div class="fact-value">0,5 GB + 191 timer</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">UPSTASH REDIS</div>
+        <div class="fact-value">10K req/dag gratis</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">PLANETSCALE</div>
+        <div class="fact-value">MySQL, serverless</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">MEST POPULÆR DB</div>
+        <div class="fact-value">PostgreSQL</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">VEKST 2024-2026</div>
+        <div class="fact-value">Serverless DB dominerer</div>
+      </div>
+    </div>
+
+    <h2>PostgreSQL-leverandører</h2>
+
+    <h3>Supabase — den komplette pakken</h3>
+    <p>Open-source Firebase-alternativ bygget på PostgreSQL. Leverer: database, auth, realtime, storage, edge functions. Gratis-plan: 500 MB database, 50 000 månedlige aktive brukere, 1 GB file storage.</p>
+    <p><strong>Pro-plan:</strong> 25 usd/mnd gir 8 GB database, 100 GB båndbredde, daglige backups i 7 dager. Godt nok for SMB-nettbutikker og apper.</p>
+
+    <pre class="code-block" data-lang="JS"><span class="com">// Supabase-klient</span>
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  'https://xyz.supabase.co',
+  process.env.SUPABASE_ANON_KEY
+);
+
+<span class="com">// Hent data</span>
+const { data, error } = await supabase
+  .from('produkter')
+  .select('*')
+  .eq('kategori', 'klaer')
+  .limit(20);</pre>
+
+    <h3>Neon — serverless PostgreSQL</h3>
+    <p>Ren PostgreSQL uten ekstra lag. Serverless-arkitektur: skalerer til null når den ikke brukes, starter på under 500 ms. Branching-funksjon lar deg lage kopier av databasen for preview-miljøer.</p>
+    <p><strong>Gratis:</strong> 0,5 GB storage, 191 compute-timer. <strong>Pro:</strong> fra 19 usd/mnd for 10 GB. Direkte kompatibel med Vercel og Railway.</p>
+
+    <h3>Vercel Postgres</h3>
+    <p>Vercels managed Postgres, bygget på Neon. Integrert med Vercel-dashboard. Ideell hvis du allerede bruker Vercel.</p>
+
+    <h3>Railway PostgreSQL</h3>
+    <p>Managed Postgres direkte i Railway. 2 GB RAM koster ~100 usd/mnd — dyrere enn alternativene men svært enkelt hvis du allerede bruker Railway.</p>
+
+    <h3>DigitalOcean Managed PostgreSQL</h3>
+    <p>Fra 15 usd/mnd for Basic-tier (1 vCPU, 1 GB RAM, 10 GB storage). Multi-AZ tilgjengelig for HA.</p>
+
+    <h3>Selvhostet på Hetzner</h3>
+    <p>For kostnadsfokuserte og tekniske team: PostgreSQL 15 på Hetzner CX22 (45 kr/mnd). Krever manuelt oppsett av backups, monitoring og HA.</p>
+
+    <h2>MySQL-alternativer</h2>
+
+    <h3>PlanetScale</h3>
+    <p>Serverless MySQL basert på Vitess (YouTubes database-engine). Skalerer horisontalt til massiv skala. Branching for preview-miljøer. Gratis-plan fjernet i 2024, så nå fra 39 usd/mnd. Fortsatt standard for seriøse MySQL-apper.</p>
+
+    <h3>Fly.io MySQL</h3>
+    <p>Fly.io tilbyr MySQL via deres ekstensjoner. Fastpris per maskin.</p>
+
+    <h3>AWS RDS MySQL / Azure Database for MySQL</h3>
+    <p>Enterprise-valg. Dyrt, men med maksimal kontroll og compliance.</p>
+
+    <h2>Redis og cache-tjenester</h2>
+
+    <h3>Upstash</h3>
+    <p>Serverless Redis og Kafka. Per-request-prising: 0,2 usd per 100K requests. Perfect for session storage, rate limiting, og lightweight cache. Gratis-plan: 10 000 requests/dag.</p>
+
+    <h3>Railway Redis</h3>
+    <p>Managed Redis i Railway-prosjekter. Fastpris, enkelt oppsett.</p>
+
+    <h3>AWS ElastiCache / Azure Cache for Redis</h3>
+    <p>Enterprise-Redis. Dyrt men kraftig.</p>
+
+    <h2>Spesialdatabaser</h2>
+
+    <h3>Turso — SQLite ved edge</h3>
+    <p>libSQL (SQLite-kompatibel) distribuert globalt. Ultra-rask lese-ytelse. Nyttig for read-tunge workloads og edge-applikasjoner. Gratis: 9 GB, 1 milliard rader.</p>
+
+    <h3>MongoDB Atlas</h3>
+    <p>Dokumentdatabasen som dominerte på 2010-tallet. Fortsatt populær for fleksible data-modeller. Gratis M0-tier med 512 MB.</p>
+
+    <h3>Clickhouse Cloud</h3>
+    <p>Analytisk database for OLAP-workloads. Ekstremt rask på store datamengder.</p>
+
+    <h3>Pinecone / Weaviate</h3>
+    <p>Vektor-databaser for AI-applikasjoner (RAG, semantisk søk). Pinecone gratis-tier med 100 000 vektorer.</p>
+
+    <h2>Hvordan velge database</h2>
+
+    <h3>For SMB-nettbutikk eller webapp</h3>
+    <p>Start med <strong>Supabase</strong>. Du får database + auth + storage + realtime i én pakke. 25 usd/mnd Pro-plan dekker det meste.</p>
+
+    <h3>For Next.js-app på Vercel</h3>
+    <p><strong>Vercel Postgres</strong> (som er Neon under panseret) gir beste integrasjon. Eller bruk Neon direkte for mer kontroll.</p>
+
+    <h3>For høy-skala MySQL-app</h3>
+    <p><strong>PlanetScale</strong> hvis du allerede har MySQL-stack og forventer stor trafikk.</p>
+
+    <h3>For AI-app</h3>
+    <p>Kombiner <strong>Supabase</strong> (brukerdata) med <strong>Pinecone</strong> (vektor-embeddings).</p>
+
+    <h3>For kostnadsfokusert prosjekt</h3>
+    <p>Selvhost PostgreSQL + Redis på <strong>Hetzner CX22</strong>. 45 kr/mnd for alt, krever bare ~2 timers oppsett.</p>
+
+    <h2>Backup-strategi</h2>
+    <p>Ingen backup er lik data-tap venter. Dette gjelder uansett database:</p>
+    <ul>
+      <li><strong>Daglige automatiske backups</strong> (Supabase, Neon, Railway gir dette automatisk)</li>
+      <li><strong>Ukentlige snapshots</strong> til separat storage (S3, R2)</li>
+      <li><strong>Månedlig restore-test</strong> — backup er ikke ekte før du har restoret en</li>
+      <li><strong>Offsite copy</strong> — ikke hos samme leverandør</li>
+    </ul>
+
+    <h2>Connection pooling</h2>
+    <p>Serverless-funksjoner kan åpne hundrevis av database-tilkoblinger samtidig, noe som overbelaster Postgres. Løsninger:</p>
+    <ul>
+      <li><strong>Supabase:</strong> Built-in Supavisor (PgBouncer)</li>
+      <li><strong>Neon:</strong> Built-in pooler</li>
+      <li><strong>Vercel + Neon:</strong> Edge-pooling automatisk</li>
+      <li><strong>Selvhostet:</strong> Installer PgBouncer selv</li>
+    </ul>
+
+    <h2>Prisoversikt for typisk norsk SMB</h2>
+    <ul>
+      <li><strong>Supabase Pro:</strong> 275 kr/mnd — database + auth + storage + realtime</li>
+      <li><strong>Neon Pro + Upstash Redis:</strong> 230 kr/mnd</li>
+      <li><strong>PlanetScale Scaler:</strong> 430 kr/mnd</li>
+      <li><strong>Selvhostet på Hetzner:</strong> 45-90 kr/mnd + tid til vedlikehold</li>
+      <li><strong>AWS RDS medium:</strong> 2000+ kr/mnd</li>
+    </ul>
+
+  </div>
+</article>
+
+<nav class="next-nav">
+  <div class="inner">
+    <a href="/cdn/" class="next-card prev">
+      <div class="next-card-label">← FORRIGE</div>
+      <div class="next-card-title">CDN og ytelse</div>
+    </a>
+    <a href="/epost/" class="next-card next">
+      <div class="next-card-label">NESTE →</div>
+      <div class="next-card-title">E-post</div>
+    </a>
+  </div>
+</nav>
+
+<div class="ecosystem-row">
+  <div class="ecosystem-inner">
+    <div class="ecosystem-links">
+      <a href="https://aihjemmeside.no">aihjemmeside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://ainettside.no">ainettside.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://aihosting.no" style="color: #2DE8A8;">aihosting.no</a>
+      <span class="ecosystem-separator">·</span>
+      <a href="https://aihosting.no" style="color: #2DE8A8;">aihosting.no</a>
+    </div>
+    <div class="ecosystem-signature">
+      <div class="ecosystem-signature-line left"></div>
+      <div class="ecosystem-signature-text">aiå.no</div>
+      <div class="ecosystem-signature-line right"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <div class="footer-logo-circle">AI</div>
+        <span class="footer-logo-text">AIHOSTING</span>
+      </div>
+      <p>Den ultimate norske kunnskapssiden for hosting av nettsider og nettbutikker med AI i 2026. Bygget av <a href="https://it-firma.no" rel="author">IT-Firma.no</a>, del av aiå.no økosystemet.</p>
+      <div class="footer-tags">
+        <span class="footer-tag">2026</span>
+        <span class="footer-tag">Norsk</span>
+        <span class="footer-tag footer-tag-ai">AEO-optimalisert</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <strong>Plattformer</strong>
+      <a href="/plattform/vercel/">Vercel</a>
+      <a href="/plattform/netlify/">Netlify</a>
+      <a href="/plattform/cloudflare/">Cloudflare Pages</a>
+      <a href="/plattform/railway/">Railway</a>
+      <a href="/plattform/flyio/">Fly.io</a>
+      <a href="/plattform/digitalocean/">DigitalOcean</a>
+      <a href="/plattform/hetzner/">Hetzner</a>
+      <a href="/plattform/aws/">AWS og Azure</a>
+    </div>
+    <div class="footer-col">
+      <strong>Drift og tema</strong>
+      <a href="/betaling/">Betaling</a>
+      <a href="/frakt/">Frakt</a>
+      <a href="/regnskap/">Regnskap</a>
+      <a href="/produkter/">Produkter</a>
+      <a href="/markedsforing/">Markedsføring</a>
+      <a href="/drift/">Drift</a>
+      <a href="/gdpr/">GDPR</a>
+    </div>
+    <div class="footer-col footer-col-ai">
+      <strong>For maskiner</strong>
+      <a href="/entity-index.json" class="footer-ai-link">entity-index.json</a>
+      <a href="/llms.txt" class="footer-ai-link">llms.txt</a>
+      <a href="/sitemap.xml" class="footer-ai-link">sitemap.xml</a>
+      <a href="/robots.txt" class="footer-ai-link">robots.txt</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 IT-Firma.no. Alle rettigheter reservert.</div>
+    <div>Sist oppdatert 24. april 2026</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progressFill').style.width = (scrollTop / scrollHeight * 100) + '%';
+});
+</script>
+
+</body>
+</html>
